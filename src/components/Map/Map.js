@@ -2,12 +2,13 @@ import mapboxgl from "mapbox-gl";
 import axios from "axios";
 import { useState, useEffect, useRef } from "react";
 import "./Map.scss";
+import "mapbox-gl/dist/mapbox-gl.css";
 import convertToGeoJson from "../../utils/convertToGeoJson";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
-function Map() {
+function Map({ markerCount }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng, setLng] = useState(-70.9);
@@ -19,12 +20,12 @@ function Map() {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/lrosati/clsnz7v1o04cy01nl7ycl3fn8",
       center: [lng, lat],
       zoom: zoom,
     });
 
-    map.current.on("style.load", () => {
+    map.current.on("load", () => {
       fetchMarkers();
     });
   }, [map]);
@@ -38,30 +39,50 @@ function Map() {
       console.log("converted the markers");
       console.log("converted response: ", convertedResponse);
       setMarkers(convertedResponse);
-
-      //Add GeoJSON source for markers
-      map.current.addSource("markers", {
-        type: "geojson",
-        data: convertedResponse,
-      });
-
-      console.log("added source");
-
-      //Add layer for markers
-      map.current.addLayer({
-        id: "markers",
-        type: "symbol",
-        source: "markers",
-        layout: {
-          "icon-image": "marker", // This should be the name of a Mapbox icon
-          "icon-allow-overlap": true,
-        },
-      });
-      console.log("Markers added to the map");
     } catch (error) {
       console.error("Could not get marker coordinates: ", error);
     }
   };
+
+  useEffect(() => {
+    if (markers.length === 0 || !map.current) return;
+
+    const sourceId = "api";
+
+    // Remove existing source and layer if they exist
+    if (map.current.getSource(sourceId)) {
+      map.current.removeLayer("points");
+      map.current.removeSource(sourceId);
+    }
+
+    //Add GeoJSON source for markers
+    map.current.addSource("api", {
+      type: "geojson",
+      data: markers,
+    });
+
+    console.log("added source");
+
+    //Add layer for markers
+    map.current.addLayer({
+      id: "points",
+      type: "symbol",
+      source: "api",
+      layout: {
+        "icon-image": "minimo-grey_poi-1",
+        "icon-allow-overlap": true,
+        "icon-size": 2,
+      },
+    });
+
+    console.log("Markers added to the map");
+  }, [markerCount, markers]);
+
+  useEffect(() => {
+    if (markerCount > 0) {
+      fetchMarkers();
+    }
+  }, [markerCount]);
 
   return (
     <div className="map">
