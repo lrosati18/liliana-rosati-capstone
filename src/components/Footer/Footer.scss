@@ -1,0 +1,26 @@
+.footer {
+  background-color: #1e1e1e;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 0;
+
+  &__text {
+    font-weight: 600;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__link {
+    font-weight: 400;
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+      color: rgb(153, 17, 17);
+    }
+  }
+}

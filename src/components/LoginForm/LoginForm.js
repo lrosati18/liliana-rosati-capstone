@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import "./LoginForm.scss";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -52,31 +55,48 @@ const LoginForm = ({ setIsLoggedIn }) => {
   };
 
   return (
-    <>
-      <h2>Login</h2>
-      <form className="form" onSubmit={handleSubmit}>
-        <div className="form__group">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <div className="form__group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <button>Login</button>
-        {errorMessage && <p>{errorMessage}</p>}
-      </form>
-    </>
+    <section className="login">
+      <Header className="login__header" />
+      <div className="form__wrapper">
+        <form className="form" onSubmit={handleSubmit}>
+          <h2 className="form__heading">Login</h2>
+          <div className="form__group">
+            <label htmlFor="username" className="form__label2">
+              Username:
+            </label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              onChange={(e) => handleChange(e)}
+              className="form__input"
+            />
+          </div>
+          <div className="form__group">
+            <label htmlFor="password" className="form__label2">
+              Password:
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              onChange={(e) => handleChange(e)}
+              className="form__input"
+            />
+          </div>
+          <button className="form__button">Login</button>
+          {errorMessage && <p className="form__error">{errorMessage}</p>}
+          <p className="form__redirect">
+            Don't have an account?
+            <Link to="/register" className="form__link">
+              Join today
+            </Link>
+          </p>
+        </form>
+      </div>
+
+      <Footer />
+    </section>
   );
 };
 

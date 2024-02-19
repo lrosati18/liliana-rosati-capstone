@@ -7,6 +7,7 @@ import journal from "../../assets/images/journal.png";
 import rocket from "../../assets/images/rocket.png";
 import world from "../../assets/images/world.png";
 import heroVideo from "../../assets/video/hero-video.mp4";
+import Footer from "../../components/Footer/Footer";
 
 function LandingPage() {
   return (
@@ -32,8 +33,8 @@ function LandingPage() {
               a world of exploration.
             </p>
           </div>
-          <div className="features__container features__container--right">
-            <div className="features__heading--right">
+          <div className="features__container">
+            <div className="features__heading">
               <img src={journal} className="features__icon"></img>
               <h3>Private Travel Journal</h3>
             </div>
@@ -55,8 +56,8 @@ function LandingPage() {
               and explore pins from fellow travellers in upcoming sprints.
             </p>
           </div>
-          <div className="features__container features__container--right">
-            <div className="features__heading--right">
+          <div className="features__container features__container">
+            <div className="features__heading">
               <img src={world} className="features__icon"></img>
               <h3>Start Pinning Today</h3>
             </div>
@@ -68,12 +69,10 @@ function LandingPage() {
           </div>
         </section>
         <Link to="/register" className="landingPage__link">
-          Register
-        </Link>
-        <Link to="/login" className="landingPage__link">
-          Login
+          Start Pinning
         </Link>
       </div>
+      <Footer />
     </section>
   );
 }
