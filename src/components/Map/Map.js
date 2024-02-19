@@ -11,9 +11,9 @@ const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 function Map({ markerCount }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng, setLng] = useState(-70.9);
-  const [lat, setLat] = useState(42.35);
-  const [zoom, setZoom] = useState(2);
+  const [lng, setLng] = useState(-10.9);
+  const [lat, setLat] = useState(25.35);
+  const [zoom, setZoom] = useState(1.75);
   const [markers, setMarkers] = useState([]);
 
   useEffect(() => {
