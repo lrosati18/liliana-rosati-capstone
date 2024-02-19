@@ -1,6 +1,7 @@
 import Map from "../../components/Map/Map";
 import Form from "../../components/Form/Form";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 function Profile() {
   const [markerCount, setMarkerCount] = useState(0);
