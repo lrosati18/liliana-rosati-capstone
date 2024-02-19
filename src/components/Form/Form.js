@@ -58,22 +58,19 @@ function Form({ setMarkerCount }) {
     <>
       <form className="form" onSubmit={handleSubmit}>
         <h2 className="form__title">Your Trip</h2>
-        <label className="form__label">
-          Destination:
+        <div className="form__group">
+          <label className="form__label">Destination:</label>
           <input
             className="form__input"
             type="text"
             name="destination"
             placeholder="Destination"
           ></input>
-        </label>
+        </div>
         <button className="form__button" type="submit">
           Pin it!
         </button>
       </form>
-      {/* <p className="place__info">Place: {place}</p>
-      <p className="place__info">Longitude: {coords[0]}</p>
-      <p className="place__info">Latitude: {coords[1]}</p> */}
     </>
   );
 }
