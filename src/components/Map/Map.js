@@ -33,14 +33,29 @@ function Map({ markerCount }) {
   //get markers data from backend and convert to GeoJSON
   const fetchMarkers = async () => {
     try {
-      const response = await axios.get(`${SERVER_URL}/markers`);
+      const authToken = sessionStorage.getItem("authToken");
+
+      if (!authToken) {
+        console.error("User not authenticated");
+        return;
+      }
+
+      const response = await axios.get(`${SERVER_URL}/markers`, {
+        headers: { Authorization: `Bearer ${authToken}` },
+      });
+
+      console.log("server response: ", response.data);
+
       console.log("got the markers");
       const convertedResponse = convertToGeoJson(response.data);
       console.log("converted the markers");
       console.log("converted response: ", convertedResponse);
       setMarkers(convertedResponse);
     } catch (error) {
-      console.error("Could not get marker coordinates: ", error);
+      console.error(
+        "Could not get marker coordinates: ",
+        error.response || error.message
+      );
     }
   };
 

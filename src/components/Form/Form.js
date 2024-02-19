@@ -24,13 +24,24 @@ function Form({ setMarkerCount }) {
 
   const addMarker = async () => {
     const markerData = {
-      userId: 111,
       latitude: coords[1],
       longitude: coords[0],
       name: place,
     };
     try {
-      const response = await axios.post(`${SERVER_URL}/markers`, markerData);
+      const authToken = sessionStorage.getItem("authToken");
+
+      if (!authToken) {
+        console.error("User not authenticated");
+        return;
+      }
+
+      const response = await axios.post(`${SERVER_URL}/markers`, markerData, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+
       setMarkerCount();
       console.log(setMarkerCount());
     } catch (error) {
