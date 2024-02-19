@@ -1,4 +1,9 @@
 .landingPage {
+  &__main {
+  }
+  &__video {
+    width: 100%;
+  }
   &__container {
     display: flex;
     flex-direction: column;
@@ -17,5 +22,35 @@
     text-transform: uppercase;
     border-radius: 20px;
     width: 10%;
+  }
+}
+
+.features {
+  &__container {
+    background-color: #1e1e1e;
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    margin: 1rem 1rem;
+    width: 70%;
+    float: left;
+
+    &--right {
+      text-align: right;
+      float: right;
+      clear: right;
+      color: white;
+    }
+  }
+  &__icon {
+    height: 2rem;
+  }
+  &__heading {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+  }
+  &__description {
+    color: white;
   }
 }
