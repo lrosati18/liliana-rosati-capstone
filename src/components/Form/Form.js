@@ -8,9 +8,20 @@ const ENDPOINT = "mapbox.places";
 const ACCESS_TOKEN =
   "?access_token=pk.eyJ1IjoibHJvc2F0aSIsImEiOiJjbHJwbnk5OGcwM2V5Mmxxcjl2bnFhYTV4In0.KLG2EA8LFGMjf4qYc8CFJQ";
 
+// const BASE_URL = process.env.REACT_APP_GEOCODE_BASE_URL;
+// const ENDPOINT = process.env.REACT_APP_GEOCODE_ENDPOINT;
+// const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
+
 function Form({ setMarkerCount }) {
   const [place, setPlace] = useState("");
   const [coords, setCoords] = useState([]);
+  const [popupText, setPopupText] = useState("");
+
+  const handleDescriptionChange = (e) => {
+    e.preventDefault();
+    setPopupText(e.target.value);
+  };
+
   //function to call server request to geocode place and create lat and lng markers for place and add marker to page
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +38,7 @@ function Form({ setMarkerCount }) {
       latitude: coords[1],
       longitude: coords[0],
       name: place,
+      description: popupText,
     };
     try {
       const authToken = sessionStorage.getItem("authToken");
@@ -66,6 +78,16 @@ function Form({ setMarkerCount }) {
             name="destination"
             placeholder="Destination"
           ></input>
+        </div>
+        <div className="form__group">
+          <label className="form__label">Details:</label>
+          <textarea
+            className="form__input"
+            type="textarea"
+            name="description"
+            placeholder="Where did you stay? What did you do? Favourite restaurants? What did you buy? Tell us everythinggggg!"
+            onChange={handleDescriptionChange}
+          ></textarea>
         </div>
         <button className="form__button" type="submit">
           Pin it!
