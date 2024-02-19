@@ -84,9 +84,9 @@ function Map({ markerCount }) {
       type: "symbol",
       source: "api",
       layout: {
-        "icon-image": "minimo-grey_poi-1",
+        "icon-image": "circle",
         "icon-allow-overlap": true,
-        "icon-size": 2,
+        "icon-size": 1.5,
       },
     });
 
