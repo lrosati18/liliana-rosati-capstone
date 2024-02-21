@@ -1,7 +1,7 @@
 import "./Header.scss";
 import { Link } from "react-router-dom";
 import profileIcon from "../../assets/icons/profile-icon.svg";
-import logo from "../../assets/logo/logo-v3.svg";
+import logo from "../../assets/logo/Heading.png";
 
 function Header() {
   return (

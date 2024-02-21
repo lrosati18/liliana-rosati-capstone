@@ -6,13 +6,13 @@ import redPin from "../../assets/images/red-pin.png";
 import journal from "../../assets/images/journal.png";
 import rocket from "../../assets/images/rocket.png";
 import world from "../../assets/images/world.png";
-import heroVideo from "../../assets/video/hero-video.mp4";
+import heroVideo from "../../assets/video/PinPoint-V2.mp4";
 import Footer from "../../components/Footer/Footer";
 
 function LandingPage() {
   return (
     <section className="landingPage">
-      <Header />
+      <Header className="landingPage__header" />
       <div className="landingPage__container">
         <main className="landingPage__main">
           <video className="landingPage__video" autoPlay muted>
@@ -21,12 +21,12 @@ function LandingPage() {
           </video>
         </main>
         <section className="features">
-          <p>
+          <p className="features__intro">
             Embark on a minimalist yet powerful experience with PinPoint - the
             essential tool for avid wanderers. Our platform is your blank canvas
             to relive your travel escapades effortlessly.
           </p>
-          <h3>Key Features</h3>
+          <h3 className="features__title">Key Features</h3>
           <div className="features__container">
             <div className="features__heading">
               <img src={redPin} className="features__icon"></img>
