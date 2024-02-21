@@ -10,6 +10,18 @@ function Header() {
         <Link to="/">
           <img src={logo} alt="logo" className="header__logo"></img>
         </Link>
+        <Link to="/register" className="header__link">
+          Register
+        </Link>
+        <Link to="/login" className="header__link">
+          Login
+        </Link>
+        <Link to="/explore" className="header__link">
+          Explore
+        </Link>
+        <Link to="/activity" className="header__link">
+          Activity
+        </Link>
         <Link to="/register">
           <img
             src={profileIcon}

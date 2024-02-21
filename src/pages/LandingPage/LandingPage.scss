@@ -16,6 +16,12 @@
   }
   &__link {
     @include button;
+    background-color: #e31b23;
+    filter: drop-shadow(0 0 0.75rem #615c5c);
+
+    &:hover {
+      background-color: #d5060d;
+    }
   }
 }
 
@@ -25,6 +31,7 @@
   align-items: center;
   &__container {
     background-color: #1e1e1e;
+    filter: drop-shadow(0 0 0.75rem #423e3e);
     border-radius: 20px;
     padding: 1rem 2rem;
     margin: 1rem 1rem;
