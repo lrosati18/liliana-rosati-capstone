@@ -13,7 +13,7 @@ function Header({ isLoggedIn, onLogout }) {
   };
 
   const handleLogout = () => {
-    onLogout(); // Call the logout function from the parent component if needed
+    onLogout(); // Call the logout function from the parent component
     alert("Logged out successfully");
     navigate("/"); // Navigate to the homepage
   };

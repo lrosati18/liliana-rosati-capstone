@@ -7,12 +7,10 @@ import journal from "../../assets/images/journal.png";
 import rocket from "../../assets/images/rocket.png";
 import world from "../../assets/images/world.png";
 import heroVideo from "../../assets/video/PinPoint-V2.mp4";
-import Footer from "../../components/Footer/Footer";
 
 function LandingPage() {
   return (
     <section className="landingPage">
-      {/* <Header className="landingPage__header" /> */}
       <div className="landingPage__container">
         <main className="landingPage__main">
           <video className="landingPage__video" autoPlay muted>
@@ -78,7 +76,6 @@ function LandingPage() {
           Start Pinning
         </Link>
       </div>
-      {/* <Footer /> */}
     </section>
   );
 }
