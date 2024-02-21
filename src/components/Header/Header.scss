@@ -16,4 +16,13 @@
     height: 2rem;
     filter: brightness(0) invert(1); //change to white
   }
+
+  &__link {
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+      color: #e31b23;
+    }
+  }
 }

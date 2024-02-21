@@ -4,7 +4,7 @@ export default function convertToGeoJSON(inputData) {
       type: "Feature",
       properties: {
         title: marker.name,
-        description: `User ID: ${marker.userId}`,
+        description: marker.description,
       },
       geometry: {
         coordinates: [marker.longitude, marker.latitude],

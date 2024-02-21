@@ -11,10 +11,11 @@ const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 function Map({ markerCount }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng, setLng] = useState(-70.9);
-  const [lat, setLat] = useState(42.35);
-  const [zoom, setZoom] = useState(2);
+  const [lng, setLng] = useState(-10.9);
+  const [lat, setLat] = useState(25.35);
+  const [zoom, setZoom] = useState(1.75);
   const [markers, setMarkers] = useState([]);
+  const [popup, setPopup] = useState(null);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
@@ -88,6 +89,25 @@ function Map({ markerCount }) {
         "icon-allow-overlap": true,
         "icon-size": 1.5,
       },
+    });
+
+    // Add click event listener for markers to show popups
+    map.current.on("click", "points", (e) => {
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.description;
+
+      if (popup) {
+        popup.remove();
+      }
+
+      const newPopup = new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map.current);
+      console.log("element clicked");
+      console.log("popup created");
+      console.log("content: ", description);
+      setPopup(newPopup);
     });
 
     console.log("Markers added to the map");

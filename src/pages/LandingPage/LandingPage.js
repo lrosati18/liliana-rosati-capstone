@@ -21,6 +21,12 @@ function LandingPage() {
           </video>
         </main>
         <section className="features">
+          <p>
+            Embark on a minimalist yet powerful experience with PinPoint - the
+            essential tool for avid wanderers. Our platform is your blank canvas
+            to relive your travel escapades effortlessly.
+          </p>
+          <h3>Key Features</h3>
           <div className="features__container">
             <div className="features__heading">
               <img src={redPin} className="features__icon"></img>

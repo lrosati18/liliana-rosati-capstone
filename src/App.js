@@ -4,6 +4,7 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import ProfilePage from "./pages/ProfilePage/Profile";
 import RegisterForm from "./components/RegisterForm/RegisterForm";
 import LoginForm from "./components/LoginForm/LoginForm";
+import ComingSoonPage from "./pages/ComingSoonPage/ComingSoonPage";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -43,6 +44,8 @@ function App() {
           path="/profile"
           element={isLoggedIn && <ProfilePage handleLogout={handleLogout} />}
         />
+        <Route path="/explore" element={<ComingSoonPage />} />
+        <Route path="/activity" element={<ComingSoonPage />} />
       </Routes>
     </BrowserRouter>
   );

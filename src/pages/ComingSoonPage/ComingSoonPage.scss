@@ -1,0 +1,10 @@
+.comingSoon {
+  height: 100vh;
+  position: relative;
+  &__text {
+    color: #e31b23;
+    font-size: 5rem;
+    height: 80vh;
+    text-align: center;
+  }
+}
