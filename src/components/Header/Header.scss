@@ -22,6 +22,7 @@
     height: 2rem;
     // filter: brightness(0) invert(1); //change to white
     fill: #1e1e1e;
+    cursor: pointer;
   }
 
   &__link {
@@ -34,4 +35,33 @@
       color: #e31b23;
     }
   }
+}
+
+.dropdown {
+  position: relative;
+
+  &__content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    transform: translateX(50%);
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+
+  &__button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+
+.dropdown:hover .dropdown__content {
+  display: block;
 }

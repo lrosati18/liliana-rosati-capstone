@@ -2,8 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./RegisterForm.scss";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -66,7 +64,6 @@ const RegisterForm = ({ setIsRegistered }) => {
 
   return (
     <section className="register">
-      <Header />
       <form className="form" onSubmit={handleSubmit}>
         <h2 className="form__heading">Register</h2>
         <div className="form__group">
@@ -150,8 +147,6 @@ const RegisterForm = ({ setIsRegistered }) => {
           </Link>
         </p>
       </form>
-
-      <Footer />
     </section>
   );
 };

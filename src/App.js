@@ -1,11 +1,13 @@
 import "./App.scss";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import ProfilePage from "./pages/ProfilePage/Profile";
 import RegisterForm from "./components/RegisterForm/RegisterForm";
 import LoginForm from "./components/LoginForm/LoginForm";
 import ComingSoonPage from "./pages/ComingSoonPage/ComingSoonPage";
 import { useState, useEffect } from "react";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,10 +25,12 @@ function App() {
   const handleLogout = () => {
     sessionStorage.removeItem("authToken");
     setIsLoggedIn(false);
+    return <Navigate to="/" />;
   };
 
   return (
     <BrowserRouter>
+      <Header isLoggedIn={isLoggedIn} onLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route
@@ -42,11 +46,18 @@ function App() {
         />
         <Route
           path="/profile"
-          element={isLoggedIn && <ProfilePage handleLogout={handleLogout} />}
+          element={
+            isLoggedIn ? (
+              <ProfilePage handleLogout={handleLogout} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         />
         <Route path="/explore" element={<ComingSoonPage />} />
         <Route path="/activity" element={<ComingSoonPage />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -2,8 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./LoginForm.scss";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -56,7 +54,6 @@ const LoginForm = ({ setIsLoggedIn }) => {
 
   return (
     <section className="login">
-      <Header className="login__header" />
       <div className="form__wrapper">
         <form className="form" onSubmit={handleSubmit}>
           <h2 className="form__heading">Login</h2>
@@ -94,8 +91,6 @@ const LoginForm = ({ setIsLoggedIn }) => {
           </p>
         </form>
       </div>
-
-      <Footer />
     </section>
   );
 };
