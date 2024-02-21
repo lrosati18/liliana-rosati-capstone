@@ -66,7 +66,7 @@ const RegisterForm = ({ setIsRegistered }) => {
 
   return (
     <section className="register">
-      <Header />
+      {/* <Header /> */}
       <form className="form" onSubmit={handleSubmit}>
         <h2 className="form__heading">Register</h2>
         <div className="form__group">
@@ -151,7 +151,7 @@ const RegisterForm = ({ setIsRegistered }) => {
         </p>
       </form>
 
-      <Footer />
+      {/* <Footer /> */}
     </section>
   );
 };

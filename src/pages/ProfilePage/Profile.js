@@ -14,10 +14,10 @@ function Profile() {
 
   return (
     <section>
-      <Header />
+      {/* <Header /> */}
       <Map markerCount={markerCount} />
       <Form setMarkerCount={handleMarkerCount} />
-      <Footer />
+      {/* <Footer /> */}
     </section>
   );
 }

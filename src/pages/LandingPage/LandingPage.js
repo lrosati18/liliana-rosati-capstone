@@ -12,7 +12,7 @@ import Footer from "../../components/Footer/Footer";
 function LandingPage() {
   return (
     <section className="landingPage">
-      <Header className="landingPage__header" />
+      {/* <Header className="landingPage__header" /> */}
       <div className="landingPage__container">
         <main className="landingPage__main">
           <video className="landingPage__video" autoPlay muted>
@@ -78,7 +78,7 @@ function LandingPage() {
           Start Pinning
         </Link>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </section>
   );
 }
