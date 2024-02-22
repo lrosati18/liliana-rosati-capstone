@@ -1,0 +1,21 @@
+.places {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  &__ul {
+    list-style: none;
+  }
+
+  &__li {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    font-weight: 500;
+  }
+
+  &__image {
+    height: 2rem;
+  }
+}

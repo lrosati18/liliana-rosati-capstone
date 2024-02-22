@@ -1,0 +1,13 @@
+@use "../../styles/partials/mixins" as *;
+
+.button {
+  @include button;
+  border-style: none;
+  margin: 2rem auto;
+  background-color: #e31b23;
+  font-weight: 600;
+
+  &:hover {
+    background-color: #c0040b;
+  }
+}

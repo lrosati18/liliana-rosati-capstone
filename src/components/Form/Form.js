@@ -8,11 +8,7 @@ const ENDPOINT = "mapbox.places";
 const ACCESS_TOKEN =
   "?access_token=pk.eyJ1IjoibHJvc2F0aSIsImEiOiJjbHJwbnk5OGcwM2V5Mmxxcjl2bnFhYTV4In0.KLG2EA8LFGMjf4qYc8CFJQ";
 
-// const BASE_URL = process.env.REACT_APP_GEOCODE_BASE_URL;
-// const ENDPOINT = process.env.REACT_APP_GEOCODE_ENDPOINT;
-// const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
-
-function Form({ setMarkerCount }) {
+function Form({ setMarkerCount, closeModal }) {
   const [place, setPlace] = useState("");
   const [coords, setCoords] = useState([]);
   const [popupText, setPopupText] = useState("");
@@ -67,8 +63,11 @@ function Form({ setMarkerCount }) {
     }
   }, [place, coords]);
   return (
-    <>
-      <form className="form" onSubmit={handleSubmit}>
+    <section className="modal">
+      <span className="close" onClick={closeModal}>
+        &times;
+      </span>
+      <form className="form2" onSubmit={handleSubmit}>
         <h2 className="form__title">Your Trip</h2>
         <div className="form__group">
           <label className="form__label">Destination:</label>
@@ -82,7 +81,7 @@ function Form({ setMarkerCount }) {
         <div className="form__group">
           <label className="form__label">Details:</label>
           <textarea
-            className="form__input"
+            className="form__input form__input--textarea"
             type="textarea"
             name="description"
             placeholder="Where did you stay? What did you do? Favourite restaurants? What did you buy? Tell us everythinggggg!"
@@ -93,7 +92,7 @@ function Form({ setMarkerCount }) {
           Pin it!
         </button>
       </form>
-    </>
+    </section>
   );
 }
 

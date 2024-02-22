@@ -3,18 +3,18 @@ import axios from "axios";
 import { useState, useEffect, useRef } from "react";
 import "./Map.scss";
 import "mapbox-gl/dist/mapbox-gl.css";
-import convertToGeoJson from "../../utils/convertToGeoJson";
+// import convertToGeoJson from "../../utils/convertToGeoJson";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
-function Map({ markerCount }) {
+function Map({ markerCount, markers, fetchMarkers }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng, setLng] = useState(-10.9);
   const [lat, setLat] = useState(25.35);
   const [zoom, setZoom] = useState(1.75);
-  const [markers, setMarkers] = useState([]);
+  // const [markers, setMarkers] = useState([]);
   const [popup, setPopup] = useState(null);
 
   useEffect(() => {
@@ -32,33 +32,33 @@ function Map({ markerCount }) {
   }, [map]);
 
   //get markers data from backend and convert to GeoJSON
-  const fetchMarkers = async () => {
-    try {
-      const authToken = sessionStorage.getItem("authToken");
+  // const fetchMarkers = async () => {
+  //   try {
+  //     const authToken = sessionStorage.getItem("authToken");
 
-      if (!authToken) {
-        console.error("User not authenticated");
-        return;
-      }
+  //     if (!authToken) {
+  //       console.error("User not authenticated");
+  //       return;
+  //     }
 
-      const response = await axios.get(`${SERVER_URL}/markers`, {
-        headers: { Authorization: `Bearer ${authToken}` },
-      });
+  //     const response = await axios.get(`${SERVER_URL}/markers`, {
+  //       headers: { Authorization: `Bearer ${authToken}` },
+  //     });
 
-      console.log("server response: ", response.data);
+  //     // console.log("server response: ", response.data);
 
-      console.log("got the markers");
-      const convertedResponse = convertToGeoJson(response.data);
-      console.log("converted the markers");
-      console.log("converted response: ", convertedResponse);
-      setMarkers(convertedResponse);
-    } catch (error) {
-      console.error(
-        "Could not get marker coordinates: ",
-        error.response || error.message
-      );
-    }
-  };
+  //     // console.log("got the markers");
+  //     const convertedResponse = convertToGeoJson(response.data);
+  //     // console.log("converted the markers");
+  //     // console.log("converted response: ", convertedResponse);
+  //     setMarkers(convertedResponse);
+  //   } catch (error) {
+  //     console.error(
+  //       "Could not get marker coordinates: ",
+  //       error.response || error.message
+  //     );
+  //   }
+  // };
 
   useEffect(() => {
     if (markers.length === 0 || !map.current) return;
@@ -113,11 +113,11 @@ function Map({ markerCount }) {
     console.log("Markers added to the map");
   }, [markerCount, markers]);
 
-  useEffect(() => {
-    if (markerCount > 0) {
-      fetchMarkers();
-    }
-  }, [markerCount]);
+  // useEffect(() => {
+  //   if (markerCount > 0) {
+  //     fetchMarkers();
+  //   }
+  // }, [markerCount]);
 
   return (
     <div className="map">
