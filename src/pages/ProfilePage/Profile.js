@@ -1,5 +1,6 @@
 import Map from "../../components/Map/Map";
 import Form from "../../components/Form/Form";
+import UserInfo from "../../components/UserInfo/UserInfo";
 import { useState, useEffect } from "react";
 import convertToGeoJson from "../../utils/convertToGeoJson";
 import PlacesList from "../../components/PlacesList/PlacesList";
@@ -58,6 +59,7 @@ function Profile() {
 
   return (
     <section>
+      <UserInfo />
       <Map
         markerCount={markerCount}
         fetchMarkers={fetchMarkers}

@@ -30,8 +30,6 @@ const LoginForm = ({ setIsLoggedIn }) => {
         username: formData.username,
         password: formData.password,
       });
-      console.log(data);
-      console.log(data);
 
       sessionStorage.setItem("authToken", data);
       setIsLoggedIn(true);
