@@ -1,5 +1,6 @@
 import "./UserInfo.scss";
-import profileIcon from "../../assets/icons/profile-icon.svg";
+// import profileIcon from "../../assets/icons/profile-icon.svg";
+import profilePic from "../../assets/images/profile-pic.jpeg";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -35,9 +36,7 @@ function UserInfo() {
 
   return (
     <section className="user">
-      <div className="user__image">
-        <img className="user__icon" src={profileIcon}></img>
-      </div>
+      <img className="user__image" src={profilePic}></img>
       <h1 className="user__greeting">Hello, {username.username}!</h1>
     </section>
   );
