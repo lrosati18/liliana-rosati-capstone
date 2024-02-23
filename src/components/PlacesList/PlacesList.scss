@@ -1,21 +1,42 @@
 .places {
-  text-align: center;
   display: flex;
-  justify-content: center;
+
+  &__title {
+    color: #1e1e1e;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__heading {
+    display: flex;
+  }
+
+  &__icon {
+    width: 10%;
+  }
 
   &__ul {
     list-style: none;
+    padding: 0;
   }
 
   &__li {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     font-size: 1rem;
     padding: 0.5rem 0;
     font-weight: 500;
   }
 
   &__image {
-    height: 2rem;
+    height: 2.5rem;
+  }
+
+  &__text {
+    padding-left: 0.5rem;
   }
 }

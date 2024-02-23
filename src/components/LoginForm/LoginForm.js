@@ -53,7 +53,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
   return (
     <section className="login">
       <div className="form__wrapper">
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form form2" onSubmit={handleSubmit}>
           <h2 className="form__heading">Login</h2>
           <div className="form__group">
             <label htmlFor="username" className="form__label2">

@@ -44,7 +44,7 @@ function LandingPage() {
             </div>
             <p className="features__description">
               Elevate your storytelling as you encapsulate each pin with
-              personal notes, photos, and reflections. It's more than a map;
+              personal notes, details, and reflections. It's more than a map;
               it's your intimate travel diary that evolves with every journey.
             </p>
           </div>
@@ -56,8 +56,9 @@ function LandingPage() {
             <p className="features__description">
               While we currently focus on the joy of personal mapping, stay
               tuned for exciting updates! We've got plans to introduce features
-              that will let you share your adventures with a global community
-              and explore pins from fellow travellers in upcoming sprints.
+              that will let you share your adventures with a global community,
+              explore pins from fellow travellers, and tag friends in shared
+              travels in upcoming sprints.
             </p>
           </div>
           <div className="features__container features__container">

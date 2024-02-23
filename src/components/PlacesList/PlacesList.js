@@ -1,26 +1,57 @@
 import "./PlacesList.scss";
-import redPin from "../../assets/images/red-pin.png";
+import redPin from "../../assets/images/pin-red.png";
+import bluePin from "../../assets/images/pin-blue.png";
+import checkmark from "../../assets/icons/checkmark.png";
+import bucketList from "../../assets/icons/bucket-blue.png";
 
-function PlacesList({ markers }) {
-  // console.log("Markers in PlacesList:", markers);
-  // console.log(markers.features);
-  const features = markers.features;
+function PlacesList({ features }) {
+  const visitedMarkers = features
+    .filter((feature) => feature.properties.visited === "visited")
+    .reverse();
+  const notVisitedMarkers = features
+    .filter((feature) => feature.properties.visited === "notVisited")
+    .reverse();
 
   return (
     <section className="places">
-      <ul className="places__ul">
-        {Array.isArray(features) &&
-          features.map((feature) => (
-            <li key={feature.id} className="places__li">
-              <img
-                className="places__image"
-                src={redPin}
-                alt="map marker"
-              ></img>
-              {feature.properties.title}
-            </li>
-          ))}
-      </ul>
+      <div className="places__section">
+        <div className="places__heading">
+          <img src={checkmark} className="places__icon"></img>
+          <h2 className="places__title">Visited Places</h2>
+        </div>
+        <ul className="places__ul">
+          {Array.isArray(visitedMarkers) &&
+            visitedMarkers.map((feature) => (
+              <li key={feature.id} className="places__li">
+                <img
+                  className="places__image"
+                  src={redPin}
+                  alt="map marker"
+                ></img>
+                <p className="places__text">{feature.properties.title}</p>
+              </li>
+            ))}
+        </ul>
+      </div>
+      <div className="places__section">
+        <div className="places__heading">
+          <img src={bucketList} className="places__icon"></img>
+          <h2 className="places__title">Bucket List Places</h2>
+        </div>
+        <ul className="places__ul">
+          {Array.isArray(notVisitedMarkers) &&
+            notVisitedMarkers.map((feature) => (
+              <li key={feature.id} className="places__li">
+                <img
+                  className="places__image"
+                  src={bluePin}
+                  alt="map marker"
+                ></img>
+                <p className="places__text">{feature.properties.title}</p>
+              </li>
+            ))}
+        </ul>
+      </div>
     </section>
   );
 }

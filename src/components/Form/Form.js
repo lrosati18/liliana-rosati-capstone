@@ -12,6 +12,7 @@ function Form({ setMarkerCount, closeModal }) {
   const [place, setPlace] = useState("");
   const [coords, setCoords] = useState([]);
   const [popupText, setPopupText] = useState("");
+  const [markerType, setMarkerType] = useState("visited");
 
   const handleDescriptionChange = (e) => {
     e.preventDefault();
@@ -34,6 +35,7 @@ function Form({ setMarkerCount, closeModal }) {
       latitude: coords[1],
       longitude: coords[0],
       name: place,
+      visited: markerType,
       description: popupText,
     };
     try {
@@ -87,6 +89,22 @@ function Form({ setMarkerCount, closeModal }) {
             placeholder="Where did you stay? What did you do? Favourite restaurants? What did you buy? Tell us everythinggggg!"
             onChange={handleDescriptionChange}
           ></textarea>
+        </div>
+        <div className="form__group">
+          <label className="form__label">Select One:</label>
+          <select
+            className="form__input"
+            name="type"
+            value={markerType}
+            onChange={(e) => setMarkerType(e.target.value)}
+          >
+            <option className="form__option" value="visited">
+              Visited
+            </option>
+            <option className="form__option" value="notVisited">
+              Not Visited
+            </option>
+          </select>
         </div>
         <button className="form__button" type="submit">
           Pin it!

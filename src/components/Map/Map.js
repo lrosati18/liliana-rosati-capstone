@@ -14,7 +14,6 @@ function Map({ markerCount, markers, fetchMarkers }) {
   const [lng, setLng] = useState(-10.9);
   const [lat, setLat] = useState(25.35);
   const [zoom, setZoom] = useState(1.75);
-  // const [markers, setMarkers] = useState([]);
   const [popup, setPopup] = useState(null);
 
   useEffect(() => {
@@ -30,35 +29,6 @@ function Map({ markerCount, markers, fetchMarkers }) {
       fetchMarkers();
     });
   }, [map]);
-
-  //get markers data from backend and convert to GeoJSON
-  // const fetchMarkers = async () => {
-  //   try {
-  //     const authToken = sessionStorage.getItem("authToken");
-
-  //     if (!authToken) {
-  //       console.error("User not authenticated");
-  //       return;
-  //     }
-
-  //     const response = await axios.get(`${SERVER_URL}/markers`, {
-  //       headers: { Authorization: `Bearer ${authToken}` },
-  //     });
-
-  //     // console.log("server response: ", response.data);
-
-  //     // console.log("got the markers");
-  //     const convertedResponse = convertToGeoJson(response.data);
-  //     // console.log("converted the markers");
-  //     // console.log("converted response: ", convertedResponse);
-  //     setMarkers(convertedResponse);
-  //   } catch (error) {
-  //     console.error(
-  //       "Could not get marker coordinates: ",
-  //       error.response || error.message
-  //     );
-  //   }
-  // };
 
   useEffect(() => {
     if (markers.length === 0 || !map.current) return;
@@ -85,9 +55,25 @@ function Map({ markerCount, markers, fetchMarkers }) {
       type: "symbol",
       source: "api",
       layout: {
-        "icon-image": "circle",
+        "icon-image": [
+          "match",
+          ["get", "visited"],
+          "visited",
+          "circle",
+          "notVisited",
+          "circle-blue",
+          "minimo-grey_poi-1", // Default to "circle" for other cases
+        ],
         "icon-allow-overlap": true,
-        "icon-size": 1.5,
+        "icon-size": [
+          "match",
+          ["get", "visited"],
+          "visited",
+          1.75, // Specific size for "visited" icon
+          "notVisited",
+          0.9, // Specific size for "notVisited" icon
+          1.5, // Default size for other cases
+        ],
       },
     });
 
@@ -112,12 +98,6 @@ function Map({ markerCount, markers, fetchMarkers }) {
 
     console.log("Markers added to the map");
   }, [markerCount, markers]);
-
-  // useEffect(() => {
-  //   if (markerCount > 0) {
-  //     fetchMarkers();
-  //   }
-  // }, [markerCount]);
 
   return (
     <div className="map">

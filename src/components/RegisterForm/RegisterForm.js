@@ -64,7 +64,7 @@ const RegisterForm = ({ setIsRegistered }) => {
 
   return (
     <section className="register">
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form form2" onSubmit={handleSubmit}>
         <h2 className="form__heading">Register</h2>
         <div className="form__group">
           <label htmlFor="userName" className="form__label2">
