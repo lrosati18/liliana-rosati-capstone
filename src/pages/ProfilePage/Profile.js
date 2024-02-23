@@ -14,6 +14,7 @@ function Profile() {
   const [markerCount, setMarkerCount] = useState(0);
   const [markers, setMarkers] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [features, setFeatures] = useState([]);
 
   //get markers data from backend and convert to GeoJSON
   const fetchMarkers = async () => {
@@ -31,6 +32,7 @@ function Profile() {
 
       const convertedResponse = convertToGeoJson(response.data);
       setMarkers(convertedResponse);
+      setFeatures(convertedResponse.features);
     } catch (error) {
       console.error(
         "Could not get marker coordinates: ",
@@ -74,7 +76,7 @@ function Profile() {
           setMarkerCount={handleMarkerCount}
         />
       )}
-      <PlacesList markers={markers} />
+      <PlacesList features={features} />
     </section>
   );
 }
