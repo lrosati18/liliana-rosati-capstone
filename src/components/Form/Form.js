@@ -13,10 +13,15 @@ function Form({ setMarkerCount, closeModal }) {
   const [coords, setCoords] = useState([]);
   const [popupText, setPopupText] = useState("");
   const [markerType, setMarkerType] = useState("visited");
+  const [formData, setFormData] = useState({
+    destination: "",
+    details: "",
+  });
 
   const handleDescriptionChange = (e) => {
     e.preventDefault();
     setPopupText(e.target.value);
+    setFormData({ ...formData, details: e.target.value });
   };
 
   //function to call server request to geocode place and create lat and lng markers for place and add marker to page
@@ -28,6 +33,7 @@ function Form({ setMarkerCount, closeModal }) {
     );
     setPlace(response.data.features[0].place_name);
     setCoords(response.data.features[0].center);
+    setFormData({ destination: "", details: "" });
   };
 
   const addMarker = async () => {
@@ -78,6 +84,10 @@ function Form({ setMarkerCount, closeModal }) {
             type="text"
             name="destination"
             placeholder="Destination"
+            value={formData.destination}
+            onChange={(e) =>
+              setFormData({ ...formData, destination: e.target.value })
+            }
           ></input>
         </div>
         <div className="form__group">
@@ -87,6 +97,7 @@ function Form({ setMarkerCount, closeModal }) {
             type="textarea"
             name="description"
             placeholder="Where did you stay? What did you do? Favourite restaurants? What did you buy? Tell us everythinggggg!"
+            value={formData.details}
             onChange={handleDescriptionChange}
           ></textarea>
         </div>
