@@ -1,0 +1,55 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.places {
+  padding: 1rem;
+
+  @include tablet {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__title {
+    color: $grey;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__heading {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__icon {
+    width: 15%;
+    @include desktop {
+      width: 10%;
+    }
+  }
+
+  &__ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__li {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    font-weight: 500;
+  }
+
+  &__image {
+    height: 2.5rem;
+  }
+
+  &__text {
+    padding-left: 0.5rem;
+    color: $grey;
+  }
+}

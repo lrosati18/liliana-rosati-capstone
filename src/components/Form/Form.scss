@@ -1,0 +1,59 @@
+@use "../../styles/partials/variables" as *;
+
+.form2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  &__title {
+    color: $grey;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    color: $grey;
+    font-weight: 600;
+  }
+
+  &__button {
+    width: 5%;
+    padding: 0.5rem 1rem;
+  }
+
+  &__input {
+    &--textarea {
+      height: 5rem;
+    }
+  }
+}
+
+.place__info {
+  text-align: center;
+  margin: 1.5rem;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #fff;
+  z-index: 1000;
+
+  filter: drop-shadow(0 0 0.75rem #423e3e);
+  border-radius: 20px;
+  width: 50%;
+}

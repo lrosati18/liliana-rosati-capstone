@@ -1,0 +1,36 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 1rem;
+
+  @include tablet {
+    padding: 2rem 3rem;
+  }
+
+  @include desktop {
+    padding: 2.5rem;
+    margin-left: 0.5rem;
+  }
+
+  &__image {
+    border-radius: 50%;
+    width: 15%;
+
+    @include desktop {
+      width: 10%;
+    }
+  }
+
+  &__greeting {
+    margin: 0;
+    color: $grey;
+    font-size: 2rem;
+    @include tablet {
+      font-size: 3rem;
+    }
+  }
+}
