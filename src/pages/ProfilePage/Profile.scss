@@ -1,11 +1,21 @@
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .button {
   @include button;
+  width: 50%;
   border-style: none;
   margin: 2rem auto;
-  background-color: #e31b23;
+  background-color: $red;
   font-weight: 600;
+
+  @include tablet {
+    width: 30%;
+  }
+
+  @include desktop {
+    width: 15%;
+  }
 
   &:hover {
     background-color: #c0040b;
@@ -13,5 +23,8 @@
 }
 
 .map__container {
-  margin: 3rem;
+  margin: 1.5rem;
+  @include tablet {
+    margin: 3rem;
+  }
 }

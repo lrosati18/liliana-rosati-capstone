@@ -13,7 +13,7 @@ function Header({ isLoggedIn, onLogout }) {
   };
 
   const handleLogout = () => {
-    onLogout(); // Call the logout function from the parent component
+    onLogout();
     alert("Logged out successfully");
     navigate("/"); // Navigate to the homepage
   };
@@ -21,7 +21,7 @@ function Header({ isLoggedIn, onLogout }) {
   return (
     <header className="header">
       <nav className="header__nav">
-        <Link to="/">
+        <Link to="/" className="header__link--tablet">
           <img src={logo} alt="logo" className="header__logo"></img>
         </Link>
         <div className="header__wrapper">

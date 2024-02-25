@@ -27,7 +27,7 @@ function LandingPage() {
           <h3 className="features__title">Key Features</h3>
           <div className="features__container">
             <div className="features__heading">
-              <img src={redPin} className="features__icon"></img>
+              <img src={redPin} className="features__icon" alt="red pin"></img>
               <h3>Your Personal Travel Map</h3>
             </div>
             <p className="features__description">
@@ -39,7 +39,7 @@ function LandingPage() {
           </div>
           <div className="features__container">
             <div className="features__heading">
-              <img src={journal} className="features__icon"></img>
+              <img src={journal} className="features__icon" alt="journal"></img>
               <h3>Private Travel Journal</h3>
             </div>
             <p className="features__description">
@@ -50,7 +50,7 @@ function LandingPage() {
           </div>
           <div className="features__container">
             <div className="features__heading">
-              <img src={rocket} className="features__icon"></img>
+              <img src={rocket} className="features__icon" alt="rocket"></img>
               <h3>Future Ready</h3>
             </div>
             <p className="features__description">
@@ -63,7 +63,7 @@ function LandingPage() {
           </div>
           <div className="features__container features__container">
             <div className="features__heading">
-              <img src={world} className="features__icon"></img>
+              <img src={world} className="features__icon" alt="globe"></img>
               <h3>Start Pinning Today</h3>
             </div>
             <p className="features__description">

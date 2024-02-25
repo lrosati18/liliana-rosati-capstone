@@ -8,7 +8,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer__section">
-        <img className="footer__logo" src={pinpointLogo}></img>
+        <img className="footer__logo" src={pinpointLogo} alt="logo"></img>
       </div>
       <div className="footer__section">
         <nav className="footer__nav">
@@ -30,10 +30,14 @@ function Footer() {
             to="https://www.linkedin.com/in/lilianarosati/"
             className="social__link"
           >
-            <img src={linkedin} className="social__icon"></img>
+            <img
+              src={linkedin}
+              className="social__icon"
+              alt="linkedin logo"
+            ></img>
           </Link>
           <Link to="https://github.com/lrosati18" className="social__link">
-            <img src={github} className="social__icon"></img>
+            <img src={github} className="social__icon" alt="github logo"></img>
           </Link>
         </nav>
       </div>

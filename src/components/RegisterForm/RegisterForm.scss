@@ -4,13 +4,22 @@
 .form {
   background-color: white;
   border-radius: 20px;
-  filter: drop-shadow(0 0 0.75rem #423e3e);
-  width: 50%;
+  // filter: drop-shadow(0 0 0.75rem #423e3e);
+  width: 90%;
   margin: 3rem auto;
   color: white;
 
+  @include tablet {
+    width: 80%;
+    filter: drop-shadow(0 0 0.75rem #423e3e);
+  }
+
+  @include desktop {
+    width: 50%;
+  }
+
   &__heading {
-    color: #e31b23;
+    color: $red;
     text-align: center;
     text-transform: uppercase;
   }
@@ -22,7 +31,7 @@
   }
 
   &__label2 {
-    color: #1e1e1e;
+    color: $grey;
     font-weight: 600;
     text-align: left;
     padding: 0.5rem;
@@ -32,28 +41,32 @@
   &__input {
     padding: 0.75rem 1rem;
     border-radius: 15px;
-    border: 1px solid #1e1e1e;
+    border: 1px solid $grey;
   }
 
   &__button {
     @include button;
     border-style: none;
     font-size: 1rem;
-    width: 30%;
-    background-color: #e31b23;
+    width: 50%;
+    background-color: $red;
     margin: 1.5rem auto;
+
+    @include tablet {
+      width: 30%;
+    }
   }
 
   &__redirect {
-    color: #1e1e1e;
+    color: $grey;
   }
 
   &__link {
-    color: #1e1e1e;
+    color: $grey;
   }
 
   &__error {
-    color: $button-colour;
+    color: $red;
     font-weight: 600;
   }
 }

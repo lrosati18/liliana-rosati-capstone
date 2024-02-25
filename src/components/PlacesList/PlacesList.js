@@ -16,7 +16,7 @@ function PlacesList({ features }) {
     <section className="places">
       <div className="places__section">
         <div className="places__heading">
-          <img src={checkmark} className="places__icon"></img>
+          <img src={checkmark} className="places__icon" alt="checkmark"></img>
           <h2 className="places__title">Visited Places</h2>
         </div>
         <ul className="places__ul">
@@ -35,7 +35,7 @@ function PlacesList({ features }) {
       </div>
       <div className="places__section">
         <div className="places__heading">
-          <img src={bucketList} className="places__icon"></img>
+          <img src={bucketList} className="places__icon" alt="bucket"></img>
           <h2 className="places__title">Bucket List Places</h2>
         </div>
         <ul className="places__ul">
