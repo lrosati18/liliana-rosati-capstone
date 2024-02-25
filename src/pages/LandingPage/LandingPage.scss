@@ -9,7 +9,7 @@
 
   &__button {
     @include button;
-    background-color: #e31b23;
+    background-color: $red;
     filter: drop-shadow(0 0 0.75rem #615c5c);
     border-style: none;
   }
@@ -33,7 +33,7 @@
   }
   &__link {
     @include button;
-    background-color: #e31b23;
+    background-color: $red;
     filter: drop-shadow(0 0 0.75rem #615c5c);
     width: 50%;
 
@@ -56,7 +56,7 @@
   flex-direction: column;
   align-items: center;
   &__container {
-    background-color: #1e1e1e;
+    background-color: $grey;
     filter: drop-shadow(0 0 0.75rem #423e3e);
     border-radius: 20px;
     padding: 1rem 2rem;

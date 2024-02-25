@@ -4,7 +4,7 @@
   @include button;
   border-style: none;
   margin: 2rem auto;
-  background-color: #e31b23;
+  background-color: $red;
   font-weight: 600;
 
   &:hover {
