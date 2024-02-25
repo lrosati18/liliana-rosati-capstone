@@ -1,7 +1,19 @@
 @use "./variables" as *;
 
+@mixin tablet {
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
 @mixin button {
-  background-color: $button-colour;
+  background-color: $red;
   border-radius: 30px;
   width: 15%;
   margin: 1.5rem 0;

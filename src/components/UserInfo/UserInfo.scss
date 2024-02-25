@@ -1,3 +1,6 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 .user {
   display: flex;
   align-items: center;
@@ -13,6 +16,6 @@
   &__greeting {
     font-size: 3rem;
     margin: 0;
-    color: #1e1e1e;
+    color: $grey;
   }
 }

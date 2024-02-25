@@ -6,9 +6,6 @@
   &__header {
     z-index: 50;
   }
-  &__main {
-    height: 50rem;
-  }
 
   &__button {
     @include button;
@@ -28,13 +25,25 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    margin-top: -100px; //new
-    z-index: 0;
+
+    @include tablet {
+      margin-top: -100px;
+      z-index: 0;
+    }
   }
   &__link {
     @include button;
     background-color: #e31b23;
     filter: drop-shadow(0 0 0.75rem #615c5c);
+    width: 50%;
+
+    @include tablet {
+      width: 20%;
+    }
+
+    @include desktop {
+      width: 15%;
+    }
 
     &:hover {
       background-color: #c0040b;

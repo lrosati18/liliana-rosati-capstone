@@ -1,3 +1,6 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
 .places {
   display: flex;
   justify-content: center;
@@ -41,6 +44,6 @@
 
   &__text {
     padding-left: 0.5rem;
-    color: #1e1e1e;
+    color: $grey;
   }
 }
