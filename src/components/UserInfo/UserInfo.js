@@ -36,7 +36,7 @@ function UserInfo() {
 
   return (
     <section className="user">
-      <img className="user__image" src={profilePic}></img>
+      <img className="user__image" src={profilePic} alt="profile photo"></img>
       <h1 className="user__greeting">Hello, {username.username}!</h1>
     </section>
   );
