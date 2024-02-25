@@ -2,9 +2,12 @@
 @use "../../styles/partials/mixins" as *;
 
 .places {
-  display: flex;
-  justify-content: center;
   padding: 1rem;
+
+  @include tablet {
+    display: flex;
+    justify-content: center;
+  }
 
   &__title {
     color: $grey;
@@ -22,7 +25,10 @@
   }
 
   &__icon {
-    width: 10%;
+    width: 15%;
+    @include desktop {
+      width: 10%;
+    }
   }
 
   &__ul {
