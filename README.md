@@ -62,6 +62,7 @@ The idea is that it mimics the physical travel maps where you add actual pins to
 
 ## Future Features
 
+- Deploy to heroku/netlify
 - Forgot password functionality
 - Ability to edit a details about a pin or change from not visited to visited
 - Gamification (earn badges for add 5 new places etc.)
@@ -74,3 +75,9 @@ The idea is that it mimics the physical travel maps where you add actual pins to
 - Allow users to like/comment on other users posts/pages
 - Add stats to profile (#cities/countries travelled, member since, etc.)
 - Add quiz that uses AI to suggest places to travel next
+
+## Instructions for Running
+
+- `npm i`
+- setup variables in .env file by referencing the .env.sample file
+  - you will need an access token from Mapbox and the url to the server
