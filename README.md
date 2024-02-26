@@ -60,6 +60,29 @@ The idea is that it mimics the physical travel maps where you add actual pins to
   - Store JWT in sessionstorage, remove when a user logs out
   - pass JWT token to backend for authentication to fetch user profile and allow access to profile page
 
+## Screenshots (Shown in Desktop view only)
+
+### Homepage
+
+![](src/assets/screenshots/desktop-1.png)
+![](src/assets/screenshots/desktop-2.png)
+![](src/assets/screenshots/landing-page-2.png)
+![](src/assets/screenshots/landing-page-3.png)
+
+### Register
+
+![](src/assets/screenshots/register.png)
+
+### Login
+
+![](src/assets/screenshots/login.png)
+
+### Profile Page
+
+![](src/assets/screenshots/profile.png)
+![](src/assets/screenshots/profile-2.png)
+![](src/assets/screenshots/add-pin.png)
+
 ## Future Features
 
 - Deploy to heroku/netlify
