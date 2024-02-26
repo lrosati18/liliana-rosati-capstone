@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# PinPoint
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+PinPoint is a way to document and share your travel memories, find travel inspiration, and build out your travel bucket list.
 
-In the project directory, you can run:
+PinPoint is an application for those that love to travel, those looking for travel ideas, and those that want to keep up with family and friends off travelling.
 
-### `npm start`
+### Problem
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Upon completing my undergraduate degree, my friends and I, like many others took off on a month-long backpacking trip through Europe. Throughout our travels we collected postcards, pictures, and lasting memories. PinPoint is a way to share those memories, and have one central place to document all your travels in a modern and organized way.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The idea is that it mimics the physical travel maps where you add actual pins to a paper map and makes it easier to share and collaborate on, all while providing others with inspiration for their future travels.
 
-### `npm test`
+### User Profile
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Travellers
 
-### `npm run build`
+  - looking for a centralized place to store travel memories
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- People looking for travel inspiration
+- People building their travel bucket list
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- As a user, I can create an account to save all my pins and their associated info
+- As a user, I can login to my account
+- As a user, I can mark places on my personal map that I have travelled to with digital pins including details about the trip
+- As a user, I can add pins for places I want to go with details about what I want to do to my personal map
 
-### `npm run eject`
+## Implementation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Tech Stack
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React
+- JavaScript
+- MySQL
+- Express
+- Client libraries:
+  - react-router
+  - axios
+  - SASS
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### APIs
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Mapbox
+  - Interactive map API for Web (JavaScript)
+  - Geocoding API
 
-## Learn More
+### Sitemap
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Homepage/Landing page
+- Register page
+- Login page
+- Profile page
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Auth
 
-### Code Splitting
+- JWT auth
+  - Store JWT in sessionstorage, remove when a user logs out
+  - pass JWT token to backend for authentication to fetch user profile and allow access to profile page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Future Features
 
-### Analyzing the Bundle Size
+- Deploy to heroku/netlify
+- Forgot password functionality
+- Ability to edit a details about a pin or change from not visited to visited
+- Gamification (earn badges for add 5 new places etc.)
+- Choose to make profile private or public
+  - public profiles will be able to be viewed even for users not logged in to get travel ideas
+- Add functionality to also add photos to details displayed in popup
+- Allow users to add a custom profile picture
+- Add rating ability for places
+- Allow users to tag other users in pins for places they travelled together so that all tagged users can contribute as well and view pin on their own profile
+- Allow users to like/comment on other users posts/pages
+- Add stats to profile (#cities/countries travelled, member since, etc.)
+- Add quiz that uses AI to suggest places to travel next
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Instructions for Running
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `npm i`
+- setup variables in .env file by referencing the .env.sample file
+  - you will need an access token from Mapbox and the url to the server
