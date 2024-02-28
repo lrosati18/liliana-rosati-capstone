@@ -99,6 +99,7 @@ function Profile() {
           setMarkerCount={handleMarkerCount}
           editMarkerId={editMarkerId}
           selectedMarker={selectedMarker}
+          fetchMarkers={fetchMarkers}
         />
       )}
       <PlacesList features={features} onEditMarker={handleEditClick} />
