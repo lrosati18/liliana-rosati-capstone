@@ -18,13 +18,6 @@ function Form({ setMarkerCount, closeModal }) {
     details: "",
   });
 
-  // const handleDescriptionChange = (e) => {
-  //   e.preventDefault();
-  //   const descriptionValue = e.target.value;
-  //   setPopupText(descriptionValue);
-  //   setFormData({ ...formData, details: descriptionValue });
-  // };
-
   const handleDescriptionChange = (e) => {
     e.preventDefault();
     const descriptionValue = e.target.value;
