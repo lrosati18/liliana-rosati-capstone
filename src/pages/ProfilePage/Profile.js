@@ -15,9 +15,11 @@ function Profile() {
   const [markers, setMarkers] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [features, setFeatures] = useState([]);
+  const [editMarkerId, setEditMarkerId] = useState(null);
+  const [selectedMarker, setSelectedMarker] = useState(null);
 
   //get markers data from backend and convert to GeoJSON
-  const fetchMarkers = async () => {
+  const fetchMarkers = async (editId) => {
     try {
       const authToken = sessionStorage.getItem("authToken");
 
@@ -33,6 +35,18 @@ function Profile() {
       const convertedResponse = convertToGeoJson(response.data);
       setMarkers(convertedResponse);
       setFeatures(convertedResponse.features);
+
+      if (editId) {
+        const selectedMarker = convertedResponse.features.find(
+          (marker) => marker.properties.id === editId
+        );
+
+        // Handle the selected marker as needed
+        console.log("Selected Marker for Edit:", selectedMarker);
+
+        // Update selectedMarker state
+        setSelectedMarker(selectedMarker);
+      }
     } catch (error) {
       console.error(
         "Could not get marker coordinates: ",
@@ -43,20 +57,29 @@ function Profile() {
 
   useEffect(() => {
     if (markerCount > 0) {
-      fetchMarkers();
+      fetchMarkers(editMarkerId);
     }
-  }, [markerCount]);
+  }, [markerCount, editMarkerId, selectedMarker]);
 
   const handleMarkerCount = () => {
     setMarkerCount((prevCount) => prevCount + 1);
   };
 
   const handleOpenModal = () => {
+    setEditMarkerId(null);
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+  };
+
+  const handleEditClick = (id) => {
+    setEditMarkerId(id);
+    setIsModalOpen(true);
+
+    // Call fetchMarkers with editMarkerId
+    fetchMarkers(id);
   };
 
   return (
@@ -74,9 +97,11 @@ function Profile() {
         <Form
           closeModal={handleCloseModal}
           setMarkerCount={handleMarkerCount}
+          editMarkerId={editMarkerId}
+          selectedMarker={selectedMarker}
         />
       )}
-      <PlacesList features={features} />
+      <PlacesList features={features} onEditMarker={handleEditClick} />
     </section>
   );
 }

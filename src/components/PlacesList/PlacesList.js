@@ -3,8 +3,9 @@ import redPin from "../../assets/images/pin-red.png";
 import bluePin from "../../assets/images/pin-blue.png";
 import checkmark from "../../assets/icons/checkmark.png";
 import bucketList from "../../assets/icons/bucket-blue.png";
+import editIcon from "../../assets/icons/edit.png";
 
-function PlacesList({ features }) {
+function PlacesList({ features, onEditMarker }) {
   const visitedMarkers = features
     .filter((feature) => feature.properties.visited === "visited")
     .reverse();
@@ -22,13 +23,24 @@ function PlacesList({ features }) {
         <ul className="places__ul">
           {Array.isArray(visitedMarkers) &&
             visitedMarkers.map((feature) => (
-              <li key={feature.id} className="places__li">
+              <li key={feature.properties.id} className="places__li">
                 <img
                   className="places__image"
                   src={redPin}
                   alt="map marker"
                 ></img>
                 <p className="places__text">{feature.properties.title}</p>
+                <div
+                  onClick={() => {
+                    onEditMarker(feature.properties.id);
+                  }}
+                >
+                  <img
+                    src={editIcon}
+                    alt="edit icon"
+                    className="places__edit"
+                  ></img>
+                </div>
               </li>
             ))}
         </ul>

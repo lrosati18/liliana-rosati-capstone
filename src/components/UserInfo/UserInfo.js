@@ -22,7 +22,6 @@ function UserInfo() {
         const response = await axios.get(`${SERVER_URL}/user`, {
           headers: { Authorization: `Bearer ${authToken}` },
         });
-        console.log(response.data);
         setUsername(response.data);
       } catch (error) {
         console.error(
