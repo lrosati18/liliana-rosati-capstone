@@ -82,6 +82,25 @@ function Profile() {
     fetchMarkers(id);
   };
 
+  const handleDelete = async (id) => {
+    try {
+      const authToken = sessionStorage.getItem("authToken");
+
+      if (!authToken) {
+        console.error("User not authenticated");
+        return;
+      }
+      console.log("the id", id);
+      await axios.delete(`${SERVER_URL}/markers/${id}`, {
+        headers: { Authorization: `Bearer ${authToken}` },
+      });
+      // Fetch markers again after successful deletion
+      fetchMarkers();
+    } catch (error) {
+      console.error("Error deleting marker:", error.response || error.message);
+    }
+  };
+
   return (
     <section>
       <UserInfo />
@@ -102,7 +121,11 @@ function Profile() {
           fetchMarkers={fetchMarkers}
         />
       )}
-      <PlacesList features={features} onEditMarker={handleEditClick} />
+      <PlacesList
+        features={features}
+        handleEditClick={handleEditClick}
+        handleDelete={handleDelete}
+      />
     </section>
   );
 }

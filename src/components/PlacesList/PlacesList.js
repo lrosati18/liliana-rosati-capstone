@@ -4,8 +4,9 @@ import bluePin from "../../assets/images/pin-blue.png";
 import checkmark from "../../assets/icons/checkmark.png";
 import bucketList from "../../assets/icons/bucket-blue.png";
 import editIcon from "../../assets/icons/edit.png";
+import deleteIcon from "../../assets/icons/delete.png";
 
-function PlacesList({ features, onEditMarker }) {
+function PlacesList({ features, handleDelete, onEditMarker }) {
   const visitedMarkers = features
     .filter((feature) => feature.properties.visited === "visited")
     .reverse();
@@ -41,6 +42,14 @@ function PlacesList({ features, onEditMarker }) {
                     className="places__edit"
                   ></img>
                 </div>
+                <div
+                  className="places__wrapper"
+                  onClick={() => {
+                    handleDelete(feature.properties.id);
+                  }}
+                >
+                  <img src={deleteIcon} className="places__delete"></img>
+                </div>
               </li>
             ))}
         </ul>
@@ -60,6 +69,25 @@ function PlacesList({ features, onEditMarker }) {
                   alt="map marker"
                 ></img>
                 <p className="places__text">{feature.properties.title}</p>
+                <div
+                  onClick={() => {
+                    onEditMarker(feature.properties.id);
+                  }}
+                >
+                  <img
+                    src={editIcon}
+                    alt="edit icon"
+                    className="places__edit"
+                  ></img>
+                </div>
+                <div
+                  className="places__wrapper"
+                  onClick={() => {
+                    handleDelete(feature.properties.id);
+                  }}
+                >
+                  <img src={deleteIcon} className="places__delete"></img>
+                </div>
               </li>
             ))}
         </ul>

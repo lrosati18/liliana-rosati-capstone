@@ -24,20 +24,12 @@ function Form({
     details: "",
   });
 
-  useEffect(() => {
-    if (
-      editMarkerId &&
-      selectedMarker &&
-      editMarkerId === selectedMarker.properties.id
-    ) {
-      // Set the form data based on the selected marker only when editMarkerId and selectedMarker match
-      setFormData({
-        destination: selectedMarker.properties.title,
-        details: selectedMarker.properties.description,
-      });
-      setMarkerType(selectedMarker.properties.visited);
-    }
-  }, [editMarkerId, selectedMarker]);
+  // const handleDescriptionChange = (e) => {
+  //   e.preventDefault();
+  //   const descriptionValue = e.target.value;
+  //   setPopupText(descriptionValue);
+  //   setFormData({ ...formData, details: descriptionValue });
+  // };
 
   const handleDescriptionChange = (e) => {
     e.preventDefault();
