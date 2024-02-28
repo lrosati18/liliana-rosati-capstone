@@ -18,22 +18,31 @@ function Form({ setMarkerCount, closeModal }) {
     details: "",
   });
 
+  // const handleDescriptionChange = (e) => {
+  //   e.preventDefault();
+  //   const descriptionValue = e.target.value;
+  //   setPopupText(descriptionValue);
+  //   setFormData({ ...formData, details: descriptionValue });
+  // };
+
   const handleDescriptionChange = (e) => {
     e.preventDefault();
-    setPopupText(e.target.value);
-    setFormData({ ...formData, details: e.target.value });
+    const descriptionValue = e.target.value;
+    setFormData({ ...formData, details: descriptionValue });
   };
 
   //function to call server request to geocode place and create lat and lng markers for place and add marker to page
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formInput = e.target.destination.value;
+    const descriptionValue = e.target.description.value;
     const response = await axios.get(
       `${BASE_URL}/${ENDPOINT}/${formInput}.json${ACCESS_TOKEN}`
     );
     setPlace(response.data.features[0].place_name);
     setCoords(response.data.features[0].center);
     setFormData({ destination: "", details: "" });
+    setPopupText(descriptionValue); // Set popupText to the value of the textarea
   };
 
   const addMarker = async () => {
@@ -70,6 +79,7 @@ function Form({ setMarkerCount, closeModal }) {
       addMarker();
     }
   }, [place, coords]);
+
   return (
     <section className="modal">
       <span className="close" onClick={closeModal}>
